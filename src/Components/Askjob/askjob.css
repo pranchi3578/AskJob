@@ -1,0 +1,38 @@
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 375px;
+    height:667px;
+    background-color: red;
+    padding: 0px;
+}
+.ant-card-body {
+    padding: 0px;
+    zoom: 1;
+    width:0px;
+    height:0px;
+    
+}
+.text{
+    letter-spacing: 3px;
+    width: 257px;;
+    height:37px;
+}
+.button1{
+    width: 253px;
+    height:51px;
+    background-image:linear-gradient(90deg,rgba(146, 254, 157, 1),rgba(0, 201, 255, 1));
+    color: white;
+
+}
+.button2{
+    width: 253px;
+    height:51px;
+    color: rgba(61, 179, 198, 1);
+    border-block-color: rgba(61, 179, 198, 1);
+    font-size:70db;
+    
+
+    
+}

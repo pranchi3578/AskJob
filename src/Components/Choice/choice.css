@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+.smallText{
+    
+    letter-spacing:0px;
+    font-size: 17dp;
+    font-family: 'Montserrat', sans-serif;
+    height:28px;
+    width:224px;
+    font-weight:bold;
+    
+
+
+}
+.largeText{
+  
+    font-size:43px;
+    font-family: 'Varela Round', sans-serif;
+    font-weight:bold;
+    color: rgba(101, 91, 91, 1);
+    height:50px;
+    width:277px;
+}
