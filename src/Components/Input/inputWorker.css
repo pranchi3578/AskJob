@@ -1,0 +1,47 @@
+.photoCard{
+    width: 155px;
+    height: 155px;
+    border-radius:50%;
+    border: 1px solid #00C9FF;
+
+    margin:71px 110px 0px 110px;
+}
+.photoDiv{
+    width:291px;
+    height: 226px;
+    }
+.inputAll {
+        display: flex;
+        justify-content: space-around;
+        height:250px; 
+        width: 375px;
+        flex-direction: column;
+
+       }
+    .inputBox{
+        width: 253px;
+        height:51px;
+      }
+    .ant-input {
+        
+        border-radius: 30px/25px;
+        padding: 0px;
+    }
+    .inputDiv{
+        width: 375px;        
+        
+        
+        padding: 0px 61px 0px 61px;
+       }
+
+    .confirmButton{
+        width: 89px;
+        height: 89px;
+        border-radius:50%;
+        border: 1px solid #00C9FF;
+        background-image:linear-gradient(90deg,rgba(146, 254, 157, 1),rgba(0, 201, 255, 1));
+    
+        margin:27px 143px 27px 143px;
+
+    }
+ 

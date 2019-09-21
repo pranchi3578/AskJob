@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Askjob from"./Components/Askjob/askjob.js";
 import Home from"./Components/Home";
 import Choice from "./Components/Choice/choice";
+import InputWorker from "./Components/Input/inputWorker.js";
 
 
 class App extends Component {
