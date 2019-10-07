@@ -5,6 +5,9 @@ import Askjob from"./Components/Askjob/askjob.js";
 import Home from"./Components/Home";
 import Choice from "./Components/Choice/choice";
 import InputWorker from "./Components/Input/inputWorker.js";
+import Workerprofile from "./Components/profile/workerprofile.js"
+import InputCtr from "./Components/Input/inputCtr";
+import CtrProfile from "./Components/profile/ctrprofile.js";
 
 
 class App extends Component {
@@ -22,7 +25,11 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Askjob} />
           <Route exact path="/SignUp" component={Home}/>     
-          <Route exact path="/Choice" component={Choice}/>  
+          <Route exact path="/Choice" component={Choice}/>
+          <Route exact path="/InputWorker" component={InputWorker}/>  
+          <Route exact path="/InputCtr" component={InputCtr}/>
+          <Route exact path="/CtrProfile" component={CtrProfile}/>  
+
        </Switch>
       </BrowserRouter>
        

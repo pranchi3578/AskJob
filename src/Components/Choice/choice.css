@@ -21,3 +21,11 @@
     height:50px;
     width:277px;
 }
+.background1{
+    width:375px;
+    height:667px;
+    background-image:url('./imaag.png');
+    background-size: cover;
+  
+    
+}

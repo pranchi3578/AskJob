@@ -1,19 +1,31 @@
-.photoCard{
-    width: 155px;
-    height: 155px;
-    border-radius:50%;
-    border: 1px solid #00C9FF;
 
-    margin:71px 110px 0px 110px;
+.background{
+    width:375px;
+    height:667px;
+    background-image:url('./img.png');
+    background-size: cover;
+
+  
+    
 }
 .photoDiv{
     width:291px;
     height: 226px;
+    display:flex;
+    padding: 70px 90px;    
+   
+ 
     }
+    .ant-upload-picture-card-wrapper{
+        width:0px;
+        height: 0px;
+
+    
+    }
+    
 .inputAll {
         display: flex;
-        justify-content: space-around;
-        height:250px; 
+        height:400px; 
         width: 375px;
         flex-direction: column;
 
@@ -21,6 +33,7 @@
     .inputBox{
         width: 253px;
         height:51px;
+        border-radius: 30px 50px;
       }
     .ant-input {
         
@@ -41,7 +54,5 @@
         border: 1px solid #00C9FF;
         background-image:linear-gradient(90deg,rgba(146, 254, 157, 1),rgba(0, 201, 255, 1));
     
-        margin:27px 143px 27px 143px;
-
     }
  
