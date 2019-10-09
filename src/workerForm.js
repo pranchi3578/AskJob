@@ -50,7 +50,7 @@ handleChange = date => {
       if (!err) {
         console.log('Received values of form: ', values);
        
-        var formData = this.props.form.getFieldsValue();
+        const formData = this.props.form.getFieldsValue();  
    db.ref('profile').child(this.state.uid).set(formData )
    db.ref('profile').child(this.state.uid).child('DOB').set(datee )
        

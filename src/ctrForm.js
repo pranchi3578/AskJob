@@ -47,14 +47,7 @@ handleClick(){
         this.handleClick();
         console.log('Received values of form: ', values);
         db.ref('profile').child(this.state.uid).set(values)
-        var n=values.skills.includes("plumper");
-        const array = Object.keys(values).map(i =>values[i])
-        var n=array.skills.includes("plumper")
-        if(n==true)
-        {
-          console.log("plumpereeeeeeeeee")
-          db.ref('skills').child('plumper').set(this.state.uid);
-        }
+       
       }
     });
   };
