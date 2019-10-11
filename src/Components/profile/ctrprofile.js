@@ -27,9 +27,7 @@ class CtrProfile extends Component {
                 <div style={{position:"relative",zIndex:"1",marginTop:"-100px"}}>
                 <Tabs tabPosition="bottom" type="card">
     <TabPane tab="Tab 1" key="1" style={{backgroundColor:"red",height:"600px",marginTop:"-500px",zIndex:"4",position:"relative"}}>
-      Content of Tab Pane 1 gggggggggggggggggggggggggggggggggggggg
-      jjjjj
-      kkkkk
+     hh
     </TabPane>
     <TabPane tab="Tab 2" key="2">
       Content of Tab Pane 2

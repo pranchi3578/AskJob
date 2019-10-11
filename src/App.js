@@ -23,7 +23,7 @@ class App extends Component {
       
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Askjob} />
+          <Route exact path="/" component={Workerprofile} />
           <Route exact path="/SignUp" component={Home}/>     
           <Route exact path="/Choice" component={Choice}/>
           <Route exact path="/InputWorker" component={InputWorker}/>  

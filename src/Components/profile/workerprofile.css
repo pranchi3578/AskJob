@@ -3,6 +3,9 @@
     height:667px;
     background-image:url('./img.png');
     background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
   
     
