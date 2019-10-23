@@ -1,58 +1,45 @@
-
-.background{
-    width:375px;
-    height:667px;
-    background-image:url('./img.png');
-    background-size: cover;
-
-  
-    
+.background {
+  width: 375px;
+  height: 667px;
+  background-image: url("./img.png");
+  background-size: cover;
 }
-.photoDiv{
-    width:291px;
-    height: 226px;
-    display:flex;
-    padding: 70px 90px;    
-   
- 
-    }
-    .ant-upload-picture-card-wrapper{
-        width:0px;
-        height: 0px;
+.photoDiv {
+  width: 291px;
+  height: 226px;
+  display: flex;
+  padding: 70px 90px;
+}
 
-    
-    }
-    
 .inputAll {
-        display: flex;
-        height:400px; 
-        width: 375px;
-        flex-direction: column;
+  display: flex;
+  height: 400px;
+  width: 375px;
+  flex-direction: column;
+}
+.inputBox {
+  width: 253px;
+  height: 51px;
+  border-radius: 30px 50px;
+}
+.ant-input {
+  border-radius: 30px/25px;
+  padding: 0px;
+}
+.inputDiv {
+  width: 375px;
 
-       }
-    .inputBox{
-        width: 253px;
-        height:51px;
-        border-radius: 30px 50px;
-      }
-    .ant-input {
-        
-        border-radius: 30px/25px;
-        padding: 0px;
-    }
-    .inputDiv{
-        width: 375px;        
-        
-        
-        padding: 0px 61px 0px 61px;
-       }
+  padding: 0px 61px 0px 61px;
+}
 
-    .confirmButton{
-        width: 89px;
-        height: 89px;
-        border-radius:50%;
-        border: 1px solid #00C9FF;
-        background-image:linear-gradient(90deg,rgba(146, 254, 157, 1),rgba(0, 201, 255, 1));
-    
-    }
- 
+.confirmButton {
+  width: 89px;
+  height: 89px;
+  border-radius: 50%;
+  border: 1px solid #00c9ff;
+  background-image: linear-gradient(
+    90deg,
+    rgba(146, 254, 157, 1),
+    rgba(0, 201, 255, 1)
+  );
+}

@@ -1,12 +1,13 @@
-.div1{
-   
-        height: 100%;
-        overflow:hidden;
-        position: relative;
-        border: 1px solid #ebedf0;
-        border-top: 0px;
-        border-radius: 2px;
-        padding: 48px;
-        text-align:center;
-        
-    }
+.div1 {
+  height: 600px;
+  width: 375px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #ebedf0;
+  border-top: 0px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  padding: 118px;
+  text-align: center;
+}

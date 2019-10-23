@@ -2,7 +2,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin:0px;
-  padding:0px 0px 0px 0px;
+  margin: 0px;
+  padding: 0px 0px 0px 0px;
   font-family: sans-serif;
+}
+.avatar-uploader > .ant-upload {
+  width: 128px;
+  height: 128px;
+}
+
+.ant-upload-select-picture-card {
+  border-radius: 50% !important;
 }
