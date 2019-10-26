@@ -17,7 +17,8 @@ class JobDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      uid: ""
+      uid: "",
+      userData: []
     };
   }
   componentDidMount = () => {
@@ -30,20 +31,30 @@ class JobDisplay extends Component {
         this.setState({ uid: user.uid });
         login = 1;
         console.log(login);
+        this.fetchUserdata(user.uid);
       }
     });
   }
-  onClicknow(keyfromjob, ctrkeyuid) {
+  fetchUserdata = uid => {
+    var that = this;
+    db.ref("profile1")
+      .child(uid)
+      .once("value", childData => {
+        that.setState({ userData: childData.val() });
+      });
+  };
+  onClicknow(keyfromjob, titlee) {
     if (login == 1) {
       console.log("apply");
       // message.success("Application submitted successfully");
       let data = {
-        useruid: this.state.uid,
-        jobkey: keyfromjob,
-        ctruid: ctrkeyuid
+        titlee,
+        userData: this.state.userData
       };
-      db.ref("app")
-        .child(token)
+      db.ref("job")
+        .child(keyfromjob)
+        .child("applications")
+        .child(this.state.uid)
         .set(data);
     }
   }
@@ -106,7 +117,7 @@ class JobDisplay extends Component {
           extra={[
             <Button
               type="primary"
-              onClick={this.onClicknow.bind(this, jobkey, user)}
+              onClick={this.onClicknow.bind(this, jobkey, titlee)}
             >
               Apply
             </Button>

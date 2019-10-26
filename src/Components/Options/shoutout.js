@@ -27,7 +27,9 @@ class JobForm extends React.Component {
       date: "",
       RedirecttoCtrProfile: false,
       datee: null,
-      selectedTags: []
+      selectedTags: [],
+      jobkey: [],
+      userData: []
     };
   }
 
@@ -39,7 +41,16 @@ class JobForm extends React.Component {
         console.log("user hey");
         that.setState({ uid: user.uid });
         console.log(user);
+        this.fetchDetails(user.uid);
       }
+    });
+  };
+  fetchDetails = uid => {
+    var that = this;
+    var qwery = db.ref("profile 0").child(uid);
+    qwery.once("value").then(function(snapshot) {
+      //child = snapshot.val();
+      that.setState({ userData: snapshot.val() });
     });
   };
 
@@ -72,11 +83,25 @@ class JobForm extends React.Component {
         db.ref("job")
           .child(key)
           .set(values);
-
-        this.props.form.resetFields();
-        this.setState({ RedirecttoCtrProfile: true });
+        this.storeData(key);
       }
     });
+  };
+  storeData = key => {
+    const { uid, userData } = this.state;
+    var child = userData;
+    if (child.hasOwnProperty("jobs")) {
+      child.jobs.push(key);
+    } else {
+      var jobs = [key];
+      child["jobs"] = jobs;
+    }
+
+    db.ref("profile 0")
+      .child(uid)
+      .set(child);
+    this.props.form.resetFields();
+    this.setState({ RedirecttoCtrProfile: true });
   };
 
   onChange(value) {

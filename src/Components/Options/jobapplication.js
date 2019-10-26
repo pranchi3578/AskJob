@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Drawer, List } from "antd";
+import { Card, Drawer, List, Button } from "antd";
 import "./jobapplications.css";
 import { fire, auth, provider, db } from "../Home/config.js";
 import InfiniteScroll from "react-infinite-scroller";
@@ -22,43 +22,41 @@ class JobApplications extends Component {
     var that = this;
     fire.auth().onAuthStateChanged(user => {
       if (user) {
-        this.state.uid = user.uid;
-        var applications = db.ref("app").orderByKey();
-        applications.once("value").then(function(snapshot) {
-          let data = [];
-          console.log(snapshot);
-          snapshot.forEach(function(childSnapshot) {
-            application = childSnapshot.val();
-            console.log(application);
-            if (application.ctruid === that.state.uid) {
-              that.sampleOne();
-            }
-            data.push(childdata);
-          });
-
-          console.log("data print : ");
-          console.log(data);
-          that.setState({ data });
-        });
+        const uid = user.uid;
+        this.setState({ uid });
+        this.fetchJobs(this.state.uid);
       }
     });
   };
-  sampleOne = () => {
-    var workerInfo = db.ref("profile1").child(application.useruid);
 
-    workerInfo.once("value").then(function(workerInfoshot) {
-      let workerInformation = workerInfoshot.val();
-      childdata["wrkname"] = workerInformation.username;
-    });
-    this.sampleTwo();
+  fetchJobs = uid => {
+    var that = this;
+    db.ref("profile 0")
+      .child(uid)
+      .child("jobs")
+      .once("value", childData => {
+        that.fetchApplications(childData.val());
+      });
   };
 
-  sampleTwo = () => {
-    var jobinfo = db.ref("job").child(application.jobkey);
-    jobinfo.once("value").then(function(jobInfoshot) {
-      let jobInformation = jobInfoshot.val();
-      console.log("hi job info is here");
-      childdata["jobtitle"] = jobInformation.titlee;
+  fetchApplications = jobKeys => {
+    let applications = [];
+    var that = this;
+    jobKeys.map(item => {
+      console.log("item", item);
+
+      db.ref("job")
+        .child(item)
+        .child("applications")
+        .once("value", data => {
+          console.log("inner", data.val());
+          data.forEach(child => {
+            applications.push(child.val());
+          });
+
+          console.log("data", applications);
+          that.setState({ data: applications });
+        });
     });
   };
 
@@ -119,21 +117,20 @@ class JobApplications extends Component {
               <List
                 dataSource={data}
                 renderItem={item => (
-                  <div className="content">
-                    <Card
-                      hoverable
-                      title={item.wrkname}
-                      style={{
-                        position: "absolute",
-                        zIndex: "1",
-                        width: "300px",
-                        height: "100px",
-                        borderRadius: "40px 40px",
-                        borderColor: "rgba(146, 254, 157, 1)",
-                        color: "rgba(0, 201, 255, 1)",
-                        textAlign: "center"
-                      }}
-                    ></Card>
+                  <div
+                    style={{
+                      marginBottom: 5,
+                      padding: 5,
+                      borderRadius: 8,
+                      minHeight: 70,
+                      boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"
+                    }}
+                  >
+                    <span>{item.titlee}</span>
+                    <span>{item.userData.username}</span>
+                    <Button type="primary" ghost>
+                      Select
+                    </Button>
                   </div>
                 )}
               ></List>
