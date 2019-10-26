@@ -24,7 +24,6 @@ class JobApplications extends Component {
       if (user) {
         const uid = user.uid;
         this.setState({ uid });
-        this.fetchJobs(this.state.uid);
       }
     });
   };
@@ -35,7 +34,10 @@ class JobApplications extends Component {
       .child(uid)
       .child("jobs")
       .once("value", childData => {
-        that.fetchApplications(childData.val());
+        if (childData.val() == null) {
+        } else {
+          that.fetchApplications(childData.val());
+        }
       });
   };
 
@@ -64,6 +66,7 @@ class JobApplications extends Component {
     this.setState({
       visible: true
     });
+    this.fetchJobs(this.state.uid);
   };
   onClose = () => {
     this.setState({
