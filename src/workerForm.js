@@ -46,6 +46,10 @@ class Checkboxs extends Component {
           .child(this.state.uid)
           .child("DOB")
           .set(datee);
+        db.ref("profile1")
+          .child(this.state.uid)
+          .child("workeruid")
+          .set(this.state.uid);
         this.setState({ RedirectToProfile: true });
       }
     });

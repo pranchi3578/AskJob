@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Card, Drawer, List, Button } from "antd";
+import { Card, Drawer, List, Button, Modal } from "antd";
 import "./jobapplications.css";
 import { fire, auth, provider, db } from "../Home/config.js";
 import InfiniteScroll from "react-infinite-scroller";
-import { node } from "prop-types";
+import Applicationdisplay from "./applicationdisplay.js";
 var application = "";
 var childdata = [];
 class JobApplications extends Component {
@@ -11,10 +11,13 @@ class JobApplications extends Component {
     super(props);
     this.state = {
       data: [],
+      selectedItem: null,
       visible: false,
       uid: "",
       loading: false,
-      hasMore: true
+      hasMore: true,
+      visibleModal: false,
+      workeruid: null
     };
   }
 
@@ -52,11 +55,13 @@ class JobApplications extends Component {
         .child("applications")
         .once("value", data => {
           console.log("inner", data.val());
+
           data.forEach(child => {
             applications.push(child.val());
+            this.setState({ workeruid: child.key });
           });
 
-          console.log("data", applications);
+          //console.log("data", applications);
           that.setState({ data: applications });
         });
     });
@@ -71,6 +76,17 @@ class JobApplications extends Component {
   onClose = () => {
     this.setState({
       visible: false
+    });
+  };
+  showModal = item => {
+    this.setState({
+      selectedItem: item,
+      visibleModal: true
+    });
+  };
+  hideModal = () => {
+    this.setState({
+      visibleModal: false
     });
   };
 
@@ -124,14 +140,38 @@ class JobApplications extends Component {
                     style={{
                       marginBottom: 5,
                       padding: 5,
+                      paddingLeft: 20,
                       borderRadius: 8,
                       minHeight: 70,
-                      boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)"
+                      boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      backgroundColor: "#3DB3C6"
                     }}
                   >
-                    <span>{item.titlee}</span>
-                    <span>{item.userData.username}</span>
-                    <Button type="primary" ghost>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        fontSize: "15px"
+                      }}
+                    >
+                      <span>{item.titlee}</span>
+                      <span
+                        style={{
+                          fontSize: "10px"
+                        }}
+                      >
+                        {item.userData.username}
+                      </span>
+                    </div>
+                    <Button
+                      onClick={this.showModal.bind(this, item)}
+                      type="primary"
+                      ghost
+                      style={{ borderColor: "white", color: "white" }}
+                    >
                       Select
                     </Button>
                   </div>
@@ -140,6 +180,17 @@ class JobApplications extends Component {
             </InfiniteScroll>
           </Drawer>
         ) : null}
+        <Modal
+          title="Modal"
+          onOk={this.hideModal}
+          onCancel={this.hideModal}
+          closable={true}
+          okText="OK"
+          cancelText="CANCEL"
+          visible={this.state.visibleModal}
+        >
+          <Applicationdisplay {...this.state.selectedItem} />
+        </Modal>
       </div>
     );
   }

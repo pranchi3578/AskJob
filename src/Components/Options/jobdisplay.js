@@ -49,6 +49,7 @@ class JobDisplay extends Component {
       // message.success("Application submitted successfully");
       let data = {
         titlee,
+        keyfromjob,
         userData: this.state.userData
       };
       db.ref("job")
@@ -56,8 +57,12 @@ class JobDisplay extends Component {
         .child("applications")
         .child(this.state.uid)
         .set(data);
+      this.success();
     }
   }
+  success = () => {
+    message.success("Application Submitted");
+  };
 
   render() {
     const {
