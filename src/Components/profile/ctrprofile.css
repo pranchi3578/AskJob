@@ -1,9 +1,6 @@
-.background{
-    width:375px;
-    height:667px;
-    background-image:url('./img.png');
-    background-size: cover;
-
-  
-    
+.background {
+  width: 375px;
+  height: 667px;
+  background-image: url("./img.png");
+  background-size: cover;
 }
