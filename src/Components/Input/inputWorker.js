@@ -29,11 +29,17 @@ class InputWorker extends Component {
                 justifyContent: "center"
               }}
             >
-              <div className="photoDiv">
+              <div
+                className="photoDiv"
+                style={{ marginTop: "-335px", marginLeft: "73px" }}
+              >
                 <Avatar />
               </div>
             </div>
-            <div className="inputAll">
+            <div
+              className="inputAll"
+              style={{ marginLeft: "-200px", marginTop: "175px" }}
+            >
               <div className="inputDiv">
                 <div>
                   <WrappedDemo />

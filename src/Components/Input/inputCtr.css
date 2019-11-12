@@ -1,12 +1,12 @@
 .background {
   width: 375px;
   height: 667px;
-  /* background-image:url('./img.png'); */
+  background-image: url("./img.png");
   background-size: cover;
 }
 .photoDiv {
-  width: 291px;
-  height: 226px;
+  width: 150px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   padding: 70px 90px;
@@ -29,7 +29,6 @@
 }
 .inputDiv {
   width: 375px;
-
   padding: 0px 61px 0px 61px;
 }
 

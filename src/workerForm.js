@@ -1,5 +1,14 @@
 import React, { Component } from "react";
-import { Form, Select, Button, Icon, Input, Tooltip, DatePicker } from "antd";
+import {
+  Form,
+  Select,
+  Button,
+  Icon,
+  Input,
+  Tooltip,
+  DatePicker,
+  InputNumber
+} from "antd";
 import "./Components/Input/inputWorker.css";
 import { auth, db, fire } from "./Components/Home/config";
 import { Redirect } from "react-router-dom";
@@ -31,6 +40,10 @@ class Checkboxs extends Component {
     console.log("Received values of date: ", valueOfInput);
     datee = valueOfInput;
   };
+
+  onChange(value) {
+    console.log("changed", value);
+  }
 
   handleSubmit = e => {
     e.preventDefault();
@@ -84,6 +97,25 @@ class Checkboxs extends Component {
             />
           )}
         </Form.Item>
+        <Form.Item>
+          pincode:
+          {getFieldDecorator("pincode", {
+            rules: [
+              {
+                required: true,
+                message: "Please input your pincode"
+              }
+            ]
+          })(
+            <InputNumber
+              min={1}
+              max={10}
+              defaultValue={3}
+              onChange={this.onChange}
+            />
+          )}
+        </Form.Item>
+
         <Form.Item label="Skills">
           {getFieldDecorator("skills", {
             rules: [

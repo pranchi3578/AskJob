@@ -30,12 +30,14 @@ export default class Index extends Component {
     db.ref("user")
       .child(uid)
       .once("value", data => {
-        var key = data.val().key;
         console.log("Ffefef", key);
         if (data.val()) {
+          var key = data.val().key;
           if (key === 0) {
             that.setState({ redirectToCtrProfile: true });
-          } else that.setState({ redirectToWrk: true });
+          } else {
+            that.setState({ redirectToWrk: true });
+          }
         } else {
           that.setState({ redirectToChoice: true });
         }

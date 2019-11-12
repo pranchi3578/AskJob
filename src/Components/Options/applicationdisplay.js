@@ -59,7 +59,8 @@ class Applicationdisplay extends Component {
       .child(this.state.uid)
       .child("contract")
       .child(keyfromjob)
-      .push(application2);
+      .child(userData.workeruid)
+      .set(application2);
     this.success();
   };
   success = () => {

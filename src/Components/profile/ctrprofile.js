@@ -26,6 +26,7 @@ class CtrProfile extends Component {
       if (user) {
         const uid = user.uid;
         this.setState({ uid });
+
         db.ref("profile 0")
           .child(uid)
           .child("jobs")
@@ -84,11 +85,16 @@ class CtrProfile extends Component {
   };
   showModal = () => {
     let array = [];
+    let keys = [];
     this.state.jobcontracts.map(item => {
       array.push(item);
-    });
-    array.forEach(it => {
-      // console.log("itttt", it["-Lt5nVcZxM7JIXzuFyDJ"].jobtitle);
+      console.log("itemmeee", item);
+      keys = Object.keys(this.state.jobs[0]);
+      console.log("keeys", this.state.jobs[0]);
+      console.log("array", array);
+      array.forEach(it => {
+        console.log("itttt", it[keys]);
+      });
     });
     this.setState({
       popupModal: true,
